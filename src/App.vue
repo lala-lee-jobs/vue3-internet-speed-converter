@@ -2,14 +2,7 @@
   <div class="container">
     <div class="card-header">Network Speed Convertere</div>
     <div class="card-body">
-      <div class="unit-control">
-        <div class="unit">Mbps</div>
-        <span class="exchange-icon fa-fw fa-stack">
-          <i class="far fa-circle fa-stack-2x"></i>
-          <i class="fas fa-exchange-alt fa-stack-1x"></i>
-        </span>
-        <div class="unit">MB/s</div>
-      </div>
+      <unit-control />
       <div class="converter">
         <div class="flex-1">
           <div class="converter-title">Set</div>
@@ -24,16 +17,19 @@
         </div>
       </div>
     </div>
-    <div class="card-footer">FAST</div>
+    <card-footer />
   </div>
 </template>
 
 <script>
 
 import {ref, computed} from 'vue';
+import CardFooter from './components/CardFooter';
+import UnitControl from './components/UnitControl';
 
 export default {
   name: 'App',
+  components: {CardFooter, UnitControl},
   setup() {
     const inputValue = ref(0);
     const convertedValue = computed(() => inputValue.value / 8);
